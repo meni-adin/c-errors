@@ -1,4 +1,3 @@
-
 FROM ubuntu
 
 RUN echo "APT::Get::Assume-Yes \"true\";\nAPT::Get::force-yes \"true\";\n" > /etc/apt/apt.conf
