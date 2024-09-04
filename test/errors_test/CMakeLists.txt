@@ -6,9 +6,6 @@ set(TARGET_SOURCES
     "errors_test.cpp"
 )
 
-set(TARGET_HEADERS
-)
-
 add_executable(${TARGET_NAME}
     ${TARGET_SOURCES}
 )
@@ -19,4 +16,3 @@ target_link_libraries(${TARGET_NAME}
 )
 
 gtest_discover_tests(${TARGET_NAME})
-
