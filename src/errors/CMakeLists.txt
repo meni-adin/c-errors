@@ -13,5 +13,5 @@ add_library(${TARGET_NAME}
 )
 
 target_include_directories(${TARGET_NAME}
-    PUBLIC "include"
+    PUBLIC "include" ${INCLUDE_DIRECTORIES_TO_PROPAGATE}
 )

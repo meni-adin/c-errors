@@ -6,6 +6,8 @@
 extern "C" {
 #endif  // __cplusplus
 
+#include "c_errors_config.h"
+
 typedef enum status_t_ {
     SUCCESS = 0,  // Must be first and equal 0
     ERR_MEM_ALLOC,

@@ -2,7 +2,6 @@
 #include <cstdlib>
 #include <gmock/gmock.h>
 
-#include "config.h"
 #include "errors.h"
 
 using namespace std;
