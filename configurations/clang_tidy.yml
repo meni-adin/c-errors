@@ -13,6 +13,7 @@ Checks: >-
   -clang-diagnostic-cast-qual,
   -clang-diagnostic-declaration-after-statement,
   -clang-diagnostic-error,
+  -clang-diagnostic-unsafe-buffer-usage,
   -misc-non-private-member-variables-in-classes,
   -modernize-use-trailing-return-type,
   -modernize-use-using,
