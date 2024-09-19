@@ -1,6 +1,6 @@
 
 #include <cstdlib>
-#include <gmock/gmock.h>
+#include <gtest/gtest.h>
 
 #include "errors.h"
 
@@ -8,6 +8,8 @@ using namespace std;
 using namespace testing;
 
 class ErrorsTest : public ::testing::Test {};
+
+class ErrorsTestDeathTest : public ErrorsTest {};
 
 #ifdef C_ERRORS_SAFE_MODE
 TEST_F(ErrorsTest, InvalidArguments) {
@@ -23,13 +25,13 @@ TEST_F(ErrorsTest, AssertSuccess) {
     errors_assert(SUCCESS);
 }
 
-TEST_F(ErrorsTest, AssertFailure) {
+TEST_F(ErrorsTestDeathTest, AssertFailure) {
     ASSERT_EXIT(errors_assert(ERR_BAD_ARGUMENT),
                 ExitedWithCode(ERR_BAD_ARGUMENT),
                 "Function called with a bad argument");
 }
 
-TEST_F(ErrorsTest, AssertUnknown) {
+TEST_F(ErrorsTestDeathTest, AssertUnknown) {
     ASSERT_EXIT(errors_assert(ERR_COUNT), ExitedWithCode(ERR_COUNT), "unknown error");
 }
 

@@ -8,9 +8,9 @@ static const char *gErrorsDatabase[] = {[SUCCESS]          = "Operation succeede
                                         [ERR_MEM_ALLOC]    = "Memory allocation failed",
                                         [ERR_BAD_ARGUMENT] = "Function called with a bad argument"};
 
-#define ARRAY_LEN(array) (sizeof(array) / sizeof(*array))
+#define ARRAY_LEN(array) (sizeof(array) / sizeof(*(array)))
 
-#define IS_KNOWN_STATUS(status) ((SUCCESS <= status) && (status < ERR_COUNT))
+#define IS_KNOWN_STATUS(status) ((SUCCESS <= (status)) && ((status) < ERR_COUNT))
 
 _Static_assert(ARRAY_LEN(gErrorsDatabase) == ERR_COUNT,
                "Error: seems like a description string for an error is missing");
@@ -21,8 +21,8 @@ void errors_assert(status_t status) {
         return;
     }
     errStr = IS_KNOWN_STATUS(status) ? gErrorsDatabase[status] : "unknown error";
-    fprintf(stderr, "%s\n", errStr);
-    exit(status);
+    (void)fprintf(stderr, "%s\n", errStr);
+    exit((int)status); // NOLINT (mute clang-tidy for 'concurrency-mt-unsafe' warning)
 }
 
 const char *errors_getStr(status_t status) {
