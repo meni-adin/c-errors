@@ -22,7 +22,7 @@ void errors_assert(status_t status) {
     }
     errStr = IS_KNOWN_STATUS(status) ? gErrorsDatabase[status] : "unknown error";
     (void)fprintf(stderr, "%s\n", errStr);
-    exit((int)status); // NOLINT (mute clang-tidy for 'concurrency-mt-unsafe' warning)
+    exit((int)status);  // NOLINT (mute clang-tidy for 'concurrency-mt-unsafe' warning)
 }
 
 const char *errors_getStr(status_t status) {

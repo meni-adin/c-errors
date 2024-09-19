@@ -1,5 +1,4 @@
 
-#include <cstdlib>
 #include <gtest/gtest.h>
 
 #include "errors.h"
