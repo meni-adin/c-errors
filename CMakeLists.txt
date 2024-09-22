@@ -8,6 +8,10 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+if(NOT (CMAKE_C_COMPILER_ID STREQUAL CMAKE_CXX_COMPILER_ID))
+    message(FATAL_ERROR "CMAKE_C_COMPILER_ID (${CMAKE_C_COMPILER_ID}) expected to be identical to CMAKE_CXX_COMPILER_ID (${CMAKE_CXX_COMPILER_ID})")
+endif()
+
 message(STATUS "CMAKE_C_COMPILER_ID: ${CMAKE_C_COMPILER_ID}")
 message(STATUS "CMAKE_CXX_COMPILER_ID: ${CMAKE_CXX_COMPILER_ID}")
 
@@ -32,6 +36,15 @@ set(CMAKE_MODULE_PATH "${MY_CMAKE_SCRIPTS_DIR}" ${CMAKE_MODULE_PATH})
 include(utils)
 include(fetch_content_wrapper)
 init_fetch_content_wrapper()
+
+set_compiler_flags()
+if(NOT DEFINED SANITIZED_BUILD)
+    message(FATAL_ERROR "SANITIZED_BUILD must be set to either TRUE or FALSE")
+endif()
+message(STATUS "SANITIZED_BUILD: ${SANITIZED_BUILD}")
+if(SANITIZED_BUILD)
+    enable_sanitizers()
+endif()
 
 include(CTest)
 
