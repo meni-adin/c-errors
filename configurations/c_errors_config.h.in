@@ -1,6 +1,6 @@
-#ifndef CONFIG_H
-#define CONFIG_H
+#ifndef C_ERRORS_CONFIG_H
+#define C_ERRORS_CONFIG_H
 
 #cmakedefine C_ERRORS_SAFE_MODE
 
-#endif // CONFIG_H
+#endif // C_ERRORS_CONFIG_H
