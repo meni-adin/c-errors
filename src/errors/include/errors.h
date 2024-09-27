@@ -12,6 +12,8 @@ typedef enum status_t_ {
     SUCCESS = 0,  // Must be first and equal 0
     ERR_MEM_ALLOC,
     ERR_BAD_ARGUMENT,
+    ERR_ELEM_DATABASE_MISMATCH,
+    ERR_DUPLICATE_ELEM,
     ERR_COUNT,
 } status_t;
 

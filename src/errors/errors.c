@@ -4,9 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static const char *gErrorsDatabase[] = {[SUCCESS]          = "Operation succeeded",
-                                        [ERR_MEM_ALLOC]    = "Memory allocation failed",
-                                        [ERR_BAD_ARGUMENT] = "Function called with a bad argument"};
+static const char *gErrorsDatabase[] = {[SUCCESS]                    = "Operation succeeded",
+                                        [ERR_MEM_ALLOC]              = "Memory allocation failed",
+                                        [ERR_BAD_ARGUMENT]           = "Function called with a bad argument",
+                                        [ERR_ELEM_DATABASE_MISMATCH] = "The given element does not belong to the given database",
+                                        [ERR_DUPLICATE_ELEM]         = "The given element compares equal to another element already in the database"};
 
 #define ARRAY_LEN(array) (sizeof(array) / sizeof(*(array)))
 
